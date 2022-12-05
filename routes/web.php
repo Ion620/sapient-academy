@@ -29,3 +29,8 @@ Route::group(['prefix' => '/lesson3'], function (){
         Route::post('/{id}', [LessonThreeController::class, 'store'])->name('lesson.store');
     });
 });
+
+Route::group(['prefix' => '/lesson4/users'], function (){
+    Route::get('/', [UsersController::class, 'index'])->name('users.index');
+    Route::get('/{id}', [UsersController::class, 'show'])->name('users.show');
+});
