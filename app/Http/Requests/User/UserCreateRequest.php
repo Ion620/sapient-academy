@@ -13,7 +13,7 @@ class UserCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class UserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'avatar' => 'image|mimes:jpg',
         ];
     }
+
+    public function perform()
+    {
+        return response()->json($this->all());
+    }
+
 }
